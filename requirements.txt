@@ -1,0 +1,8 @@
+insightface
+mxnet
+onnxruntime
+joblib
+django
+pandas
+numpy
+opencv-python
