@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+input
+{% endblock %}
+
+
+{% block content %}
+<div class="text-lg font-bold">Face Recognition Attendance System</div>
+<form method="post" class="flex flex-col" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file"  required name="image" class="border rounded-lg my-4">
+    <button class="border mx-auto w-[100%] rounded-lg bg-green-500">Submit</button>
+</form>
+
+<div class=" flex flex-wrap w-[50%] my-3">
+    {% for present in present_list %}
+        <div class="mx-2">{{present}}</div>
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}
