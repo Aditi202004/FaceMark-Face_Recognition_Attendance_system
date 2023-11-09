@@ -68,6 +68,10 @@
     .col:hover {
       transform: scale(1.02);
     }
+    .new-student-btn:hover {
+      background-color: #18191a;
+      color: black;
+    }
   </style>
 
   <head>
@@ -108,7 +112,7 @@
       </h1>
     </div>
 
-    <p class="text-center" id="date-time" style="color: white; font-size: 20px">
+    <p class="text-center" id="date-time" style="color: white; font-size: 20px;">
       Date | Time
     </p>
 
@@ -290,7 +294,7 @@
         </button>
       </div>
 
-      <div class="container">
+      <!-- <div class="container">
         <a href="new_user.html" target="_blank">
           <button
             style="
@@ -301,20 +305,23 @@
               background-color: #0b4c61;
             "
             type="submit"
-            class="btn btn-dark"
-            id="attendance"
+            class="btn btn-dark new-student-btn"
+            id="new-student"
+            onmouseover="this.style.backgroundColor='#053e51';this.style.color='';"
+            onmouseout="this.style.backgroundColor='#0b4c61'; this.style.color='';"
+            onmouseleave="this.style.backgroundColor='#0b4c61';"
           >
             Add New Student
           </button>
         </a>
-      </div>
+      </div> -->
     </div>
 
     <script>
       function updateDateTime() {
         const dateTimeElement = document.getElementById("date-time");
         const now = new Date();
-        const dateTimeString = now.toLocaleString(); // Format the date and time as a string
+        const dateTimeString = now.toLocaleString(); 
         dateTimeElement.textContent = "Date and Time: " + dateTimeString;
       }
 
