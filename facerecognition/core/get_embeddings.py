@@ -9,9 +9,14 @@ def get_embeddings(className, img, roll):
     import os
 
     directory = os.path.join(settings.BASE_DIR, 'static','classes.pkl')
-    _classes = {}
-
-    _classes = joblib.load(directory)
+    try:
+        if os.path.exists(directory) and os.path.getsize(directory) > 0:
+            _classes = joblib.load(directory)
+        else:
+            _classes = {}
+            _classes[className] = [[],[]]
+    except Exception as e:
+        print(f"Error loading/pickling classes: {e}")
     embeddings = _classes[className][0]
     labels = _classes[className][1]
 
@@ -31,7 +36,7 @@ def get_embeddings(className, img, roll):
     model.prepare(ctx_id=0, det_size=(640,640))
     face = model.get(padded_face)
 
-    embeddings.append(face.embedding)
+    embeddings.append(face[0].embedding)
     labels.append(roll)
 
     _classes[className][0] = embeddings

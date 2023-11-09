@@ -64,7 +64,8 @@ def students_enroll(request):
             stu_image = StudentImages()
             stu_image.sid = student
             stu_image.rollNumber = student.rollNumber
-            stu_image.image = SimpleUploadedFile(img.name, img.read())  # Create a SimpleUploadedFile from the uploaded file
+            stu_image.image = SimpleUploadedFile(img.name, img.read())
+            # Create a SimpleUploadedFile from the uploaded file
             stu_image.save()
             print(StudentImages.objects.all())
         print("directory created")
@@ -78,7 +79,8 @@ def students_enroll(request):
             print(f)
             img = cv2.imread(f)
             print("hi image")
-            get_embeddings(c_name, img, rollNumber)
+            get_embeddings(c_name, img, rollNumber) 
+            
 
             
     return render(request,'studentimages.html',data)
