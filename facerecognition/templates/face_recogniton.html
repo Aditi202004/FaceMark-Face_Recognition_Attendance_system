@@ -68,39 +68,20 @@
     .col:hover {
       transform: scale(1.02);
     }
-    .new-student-btn:hover {
-      background-color: #18191a;
-      color: black;
-    }
-
-    {% comment %} newly added {% endcomment %}
-    
-    .new-feature {
-      position: relative;
-    }
-
-    .new-feature p {
-      position: absolute;
-      top: 0;
-      left: 0;
-      margin: 0;
-      padding: 5px 10px;
-      background-color: #ff0000; /* Choose your desired background color */
-      color: #ffffff; /* Choose your desired text color */
-      font-weight: bold;
-      animation: blink 2s infinite; /* Adjust the animation duration as needed */
-    }
-
     @keyframes blink {
       0% {
-          opacity: 1;
+        opacity: 1;
       }
       50% {
-          opacity: 0;
+        opacity: 0;
       }
       100% {
-          opacity: 1;
+        opacity: 1;
       }
+    }
+
+    .logo {
+      animation: blink 1s infinite; /* Adjust the duration as needed */
     }
   </style>
 
@@ -142,7 +123,7 @@
       </h1>
     </div>
 
-    <p class="text-center" id="date-time" style="color: white; font-size: 20px;">
+    <p class="text-center" id="date-time" style="color: white; font-size: 20px">
       Date | Time
     </p>
 
@@ -217,10 +198,6 @@
           min-height: 400px;
         "
       >
-      <div class="new-feature">
-        <p>New!</p>
-        <!-- Your feature content goes here -->
-      </div>
         <h2
           style="
             border-radius: 20px 20px 0px 0px;
@@ -231,7 +208,7 @@
         >
           Record Live Attendance
         </h2>
-
+        <img src="new_logo.png" alt="Your Logo" class="logo" />
         <p style="padding: 10px; color: white; font-size: 18px">
           Please click the "Open Camera" button to start recording live
           attendance using your webcam.
@@ -257,7 +234,6 @@
         <p style="padding: 10px; color: white; font-size: 18px">
           Total number of faces detected: x
         </p>
-        
       </div>
 
       <div
@@ -299,7 +275,7 @@
 
         <button
           style="
-            margin-top: 35px;
+            margin-top: 45px;
             margin-bottom: 10px;
             font-size: 20px;
             width: 80%;
@@ -329,8 +305,8 @@
         </button>
       </div>
 
-      <!-- <div class="container">
-        <a href="new_user.html" target="_blank">
+      <div class="container">
+        <a href="course.html" target="_blank">
           <button
             style="
               width: 232px;
@@ -340,23 +316,22 @@
               background-color: #0b4c61;
             "
             type="submit"
-            class="btn btn-dark new-student-btn"
-            id="new-student"
+            class="btn btn-dark new-course-btn"
             onmouseover="this.style.backgroundColor='#053e51';this.style.color='';"
             onmouseout="this.style.backgroundColor='#0b4c61'; this.style.color='';"
             onmouseleave="this.style.backgroundColor='#0b4c61';"
           >
-            Add New Student
+            Add New Course
           </button>
         </a>
-      </div> -->
+      </div>
     </div>
 
     <script>
       function updateDateTime() {
         const dateTimeElement = document.getElementById("date-time");
         const now = new Date();
-        const dateTimeString = now.toLocaleString(); 
+        const dateTimeString = now.toLocaleString();
         dateTimeElement.textContent = "Date and Time: " + dateTimeString;
       }
 
