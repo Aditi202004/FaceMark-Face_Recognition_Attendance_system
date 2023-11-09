@@ -21,6 +21,7 @@
       justify-items: center;
       justify-content: space-around;
     }
+
     .col-6:hover {
       transform: scale(1.02);
     }
@@ -45,6 +46,19 @@
     @keyframes blink {
       50% {
         opacity: 0;
+      }
+    }
+    @media screen and (max-width: 1200px) {
+      h1 {
+        padding: 5%;
+        font-size: 3vw;
+      }
+      h1 span::before {
+        width: 0px;
+      }
+
+      .col-6 {
+        width: 100%;
       }
     }
   </style>
@@ -74,7 +88,7 @@
           width: auto;
           margin: auto;
           color: white;
-          padding: 160px;
+          padding: 10%;
           font-size: 60px;
         "
       >
@@ -83,7 +97,7 @@
 
       <div class="row text-center" style="padding: 20px; margin: 20px">
         <a
-          href="signuppp.html"
+          href="signup.html"
           class="col-6 text-center"
           style="
             display: flex;
@@ -93,12 +107,13 @@
             border-radius: 20px;
             padding: 0px;
             background-color: #0b4c61;
-            margin: 0px 10px 0px 0px;
+            margin: 0px 10px 10px 10px;
             height: 150px;
             width: 300px;
             font-size: 30px;
             color: white;
             text-decoration: none;
+            margin: 10px;
           "
           ><b>TAKE ATTENDANCE</b></a
         >
@@ -114,12 +129,13 @@
             border-radius: 20px;
             padding: 0px;
             background-color: #0b4c61;
-            margin: 0px 10px 0px 0px;
+            margin: 0px 10px 10px 10px;
             height: 150px;
             width: 300px;
             font-size: 30px;
             color: white;
             text-decoration: none;
+            margin: 10px;
           "
           ><b>ADD NEW STUDENT</b></a
         >
