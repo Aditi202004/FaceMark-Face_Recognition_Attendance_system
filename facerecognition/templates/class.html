@@ -7,10 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
+    <form method="post">
         {%csrf_token%}
         <input name="class" placeholder="class_name" />
-        
+        <input name="prof_name" placeholder="prof_name" />
+        <button type="submit" >Submit</button>
     </form>
 </body>
 </html>
