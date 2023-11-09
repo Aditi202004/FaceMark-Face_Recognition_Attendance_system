@@ -1,4 +1,4 @@
-def predict(img_list, className){
+def predict(img_list, className):
     import joblib
     import numpy as np
     import insightface
@@ -53,4 +53,3 @@ def predict(img_list, className){
         roll.append(labels[idx])
 
     return roll
-}

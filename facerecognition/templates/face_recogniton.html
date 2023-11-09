@@ -72,6 +72,36 @@
       background-color: #18191a;
       color: black;
     }
+
+    {% comment %} newly added {% endcomment %}
+    
+    .new-feature {
+      position: relative;
+    }
+
+    .new-feature p {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 5px 10px;
+      background-color: #ff0000; /* Choose your desired background color */
+      color: #ffffff; /* Choose your desired text color */
+      font-weight: bold;
+      animation: blink 2s infinite; /* Adjust the animation duration as needed */
+    }
+
+    @keyframes blink {
+      0% {
+          opacity: 1;
+      }
+      50% {
+          opacity: 0;
+      }
+      100% {
+          opacity: 1;
+      }
+    }
   </style>
 
   <head>
@@ -187,6 +217,10 @@
           min-height: 400px;
         "
       >
+      <div class="new-feature">
+        <p>New!</p>
+        <!-- Your feature content goes here -->
+      </div>
         <h2
           style="
             border-radius: 20px 20px 0px 0px;
@@ -223,6 +257,7 @@
         <p style="padding: 10px; color: white; font-size: 18px">
           Total number of faces detected: x
         </p>
+        
       </div>
 
       <div
