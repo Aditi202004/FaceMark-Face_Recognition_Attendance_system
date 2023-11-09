@@ -35,18 +35,44 @@ class StudentImages(models.Model):
     rollNumber = models.CharField(max_length=1000)
     image = models.ImageField(upload_to=file_path)
 
-class Date(models.Model):
-    date = models.DateField(auto_now=True)
+# class Date(models.Model):
+#     date = models.DateField(auto_now=True)
+#     course = models.ForeignKey(Classes,on_delete=models.CASCADE)
 
 
-class Attendance(models.Model):
-    date  = models.ForeignKey(Date,on_delete=models.CASCADE)
-    c_name = models.ForeignKey(Classes,on_delete=models.CASCADE)
+
+# class Attendance(models.Model):
+#     date  = models.ForeignKey(Date,on_delete=models.CASCADE)
+#     c_name = models.ForeignKey(Classes,on_delete=models.CASCADE)
+#     sid = models.ForeignKey(Students, on_delete=models.CASCADE)
+#     attendance_mark = models.CharField(
+#         max_length=20,
+#         choices=ATTENDANCE_MARK,
+#         default='absent'
+#     )
+
+class Date_Course(models.Model):
+    date = models.DateField()
+    course_id = models.ForeignKey(Classes,on_delete=models.CASCADE)
+
+def file_path_date(instance,filename):
+    return os.path.join('static/images/',str(instance.date.date),filename)
+
+class Date_Image(models.Model):
+    date = models.ForeignKey(Date_Course,on_delete=models.CASCADE)
+    images = models.ImageField(upload_to=file_path_date)
+
+class Attendance_Date(models.Model):
+    date  = models.ForeignKey(Date_Course,on_delete=models.CASCADE)
+    course = models.ForeignKey(Classes,on_delete=models.CASCADE)
     sid = models.ForeignKey(Students, on_delete=models.CASCADE)
     attendance_mark = models.CharField(
         max_length=20,
         choices=ATTENDANCE_MARK,
         default='absent'
     )
+
+class Image(models.Model):
+    image = models.ImageField(upload_to='media/static/images/video_cam')
 
 

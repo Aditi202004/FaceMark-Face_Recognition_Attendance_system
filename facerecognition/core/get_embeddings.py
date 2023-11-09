@@ -8,7 +8,7 @@ def get_embeddings(className, img, roll):
     from django.conf import settings
     import os
 
-    directory = os.path.join(settings.BASE_DIR, 'static','classes.pkl')
+    directory = os.path.join(settings.BASE_DIR, 'media/static','classes.pkl')
     try:
         if os.path.exists(directory) and os.path.getsize(directory) > 0:
             _classes = joblib.load(directory)
@@ -17,6 +17,7 @@ def get_embeddings(className, img, roll):
             _classes[className] = [[],[]]
     except Exception as e:
         print(f"Error loading/pickling classes: {e}")
+    i = 0
     embeddings = _classes[className][0]
     labels = _classes[className][1]
 

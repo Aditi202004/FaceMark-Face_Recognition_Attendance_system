@@ -9,7 +9,7 @@ def predict(img_list, className):
     import os
     from sklearn.metrics.pairwise import cosine_similarity
 
-    directory = os.path.join(settings.BASE_DIR, 'static','classes.pkl')
+    directory = os.path.join(settings.BASE_DIR, 'static','classes')
     try:
         if os.path.exists(directory) and os.path.getsize(directory) > 0:
             _classes = joblib.load(directory)
@@ -53,3 +53,4 @@ def predict(img_list, className):
         roll.append(labels[idx])
 
     return roll
+

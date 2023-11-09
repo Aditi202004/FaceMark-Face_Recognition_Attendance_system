@@ -20,7 +20,7 @@
     .drop-zone {
       width: 250px;
       height: 180px;
-      padding: 20px;
+      padding: 25px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -32,7 +32,7 @@
       color: white;
       border: 4px dashed white;
       border-radius: 10px;
-      margin: 10px auto;
+      margin: 20px auto;
     }
 
     .drop-zone--over {
@@ -68,63 +68,11 @@
     .col:hover {
       transform: scale(1.02);
     }
-    .details {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      text-align: center;
-    }
-    @keyframes blink {
-      0% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-
-    .logo {
-      animation: blink 1s infinite;
-    }
-    @media screen and (max-width: 1400px) {
-      body {
-        margin-top: 20px;
-      }
-
-      .row {
-        flex-direction: column;
-      }
-
-      .col {
-        margin: 10px 0;
-        height: auto;
-      }
-
-      .drop-zone {
-        width: 80%;
-        margin: 0 auto;
-      }
-    }
-    input[type="date"] {
-      font-size: 15px;
-      width: auto;
-      display: inline-block;
-      vertical-align: top;
-    }
-
-    #studentDropdown {
-      font-size: 17px;
-      width: auto;
-      display: inline-block;
-      vertical-align: top;
-    }
   </style>
 
   <head>
     <script src="static\js\alert.js"></script>
+    <script src="static\js\drag_drop.js"></script>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -194,35 +142,25 @@
           Photo-Based Attendance
         </h2>
 
-        <div class="details">
-          <div
-            id="calendar"
-            style="
-              font-size: 20px;
-              margin-top: 10px;
-              margin-bottom: 10px;
-              color: white;
-            "
-          >
-            <form method="post">
-              <input type="date" name="" value="" style="font-size: 17px" />
-            </form>
-          </div>
-          <div class="course">
-            <select id="studentDropdown" name="student" required>
-              <option value="" disabled selected>Select a Course</option>
-              <option value="student1">CS 201</option>
-              <option value="student2">CS 203</option>
-              <option value="student3">CS 207</option>
-            </select>
-          </div>
+        <div
+          id="calendar"
+          style="
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: white;
+          "
+        >
+          <form method="post">
+            <input type="date" name="" value="" />
+          </form>
         </div>
+
         <div class="drop-zone">
-          <div class="drop-zone__file-count"></div>
           <span class="drop-zone__prompt"
-            >Drop files here or click to upload</span
+            >Drop file here or click to upload</span
           >
-          <input type="file" name="myFile" class="drop-zone__input" multiple />
+          <input type="file" name="myFiles" class="drop-zone__input" multiple />
         </div>
 
         <button
@@ -242,7 +180,7 @@
           padding: 0px;
           background-color: rgb(211, 211, 211, 0.5);
           margin: 0px 10px 10px 10px;
-          height: 400px;
+          min-height: 400px;
         "
       >
         <h2
@@ -255,7 +193,7 @@
         >
           Record Live Attendance
         </h2>
-        <img src="new_logo.png" alt="Your Logo" class="logo" />
+
         <p style="padding: 10px; color: white; font-size: 18px">
           Please click the "Open Camera" button to start recording live
           attendance using your webcam.
@@ -322,7 +260,7 @@
 
         <button
           style="
-            margin-top: 45px;
+            margin-top: 35px;
             margin-bottom: 10px;
             font-size: 20px;
             width: 80%;
@@ -353,7 +291,7 @@
       </div>
 
       <div class="container">
-        <a href="course.html">
+        <a href="new_user.html" target="_blank">
           <button
             style="
               width: 232px;
@@ -363,12 +301,10 @@
               background-color: #0b4c61;
             "
             type="submit"
-            class="btn btn-dark new-course-btn"
-            onmouseover="this.style.backgroundColor='#053e51';this.style.color='';"
-            onmouseout="this.style.backgroundColor='#0b4c61'; this.style.color='';"
-            onmouseleave="this.style.backgroundColor='#0b4c61';"
+            class="btn btn-dark"
+            id="attendance"
           >
-            Add New Course
+            Add New Student
           </button>
         </a>
       </div>
@@ -378,13 +314,12 @@
       function updateDateTime() {
         const dateTimeElement = document.getElementById("date-time");
         const now = new Date();
-        const dateTimeString = now.toLocaleString();
+        const dateTimeString = now.toLocaleString(); // Format the date and time as a string
         dateTimeElement.textContent = "Date and Time: " + dateTimeString;
       }
 
       updateDateTime();
       setInterval(updateDateTime, 1000);
     </script>
-    <script src="drag_drop.js"></script>
   </body>
 </html>
