@@ -11,19 +11,19 @@ FaceMark simplifies classroom attendance management using facial recognition. De
 
 ## Procedure
 
- ### 1. Dataset Formatting:
-    - Photos labeled with the last four digits of roll numbers.
-    - Transformed into rectangles, resized, and computed facial embeddings.
+ #### 1. Dataset Formatting:
+   - Photos labeled with the last four digits of roll numbers.
+   - Transformed into rectangles, resized, and computed facial embeddings.
 
- ### 2. Training Model:
-    - Facial recognition model trained on a diverse dataset, creating "train_embeddings" for identification.
+ #### 2. Training Model:
+   - Facial recognition model trained on a diverse dataset, creating "train_embeddings" for identification.
 
- ### 3. Real-time Attendance Capture:
-    - Group photos captured during class.
-    - Faces identified, resized uniformly, and embeddings extracted.
+ #### 3. Real-time Attendance Capture:
+   - Group photos captured during class.
+   - Faces identified, resized uniformly, and embeddings extracted.
 
- ### 4. Recognition Process:
-    - Detected faces compared with "train_embeddings" using cosine similarity, resulting in associated roll numbers.
+ #### 4. Recognition Process:
+   - Detected faces compared with "train_embeddings" using cosine similarity, resulting in associated roll numbers.
 
 ## Code Explanation
 
