@@ -39,14 +39,17 @@ Our approach involves:
 ## How to Run the Code
   
  #### 1. Clone the repository:
-  git clone https://github.com/Aditi202004/FaceMark-Face_Recognition_Attendance_system.git
-  cd FaceMark-Face_Recognition_Attendance_system
+  - git clone https://github.com/Aditi202004/FaceMark-Face_Recognition_Attendance_system.git
+  - cd FaceMark-Face_Recognition_Attendance_system
 
  #### 2. Install dependencies:
-  pip install -r requirements.txt
+  - pip install -r requirements.txt
+
+ #### 2. Change your Current Directory:
+  - cd facerecognition
 
  #### 3. Run the code:
-  python main.py
+  - python manage.py runserver
 
    
 ## Metrics
