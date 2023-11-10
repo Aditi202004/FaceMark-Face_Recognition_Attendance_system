@@ -38,18 +38,16 @@ Our approach involves:
  
 ## How to Run the Code
   
-  1. Clone the repository:
-   ```bash
-   git clone https://github.com/Aditi202004/FaceMark-Face_Recognition_Attendance_system.git
-   cd FaceMark-Face_Recognition_Attendance_system
+ #### 1. Clone the repository:
+ git clone https://github.com/Aditi202004/FaceMark-Face_Recognition_Attendance_system.git
+ cd FaceMark-Face_Recognition_Attendance_system
 
-  2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
+ #### 2. Install dependencies:
+ pip install -r requirements.txt
 
-  3. Run the code:
-   ```bash
-   python main.py
+ #### 3. Run the code:
+ python main.py
+
    
 ## Metrics
 
@@ -68,5 +66,3 @@ The project is organized as follows:
 
 - `/src`: contains the source code files.
 - `/static`: Includes CSS, JS, and images for the project's user interface.
-   
-  
