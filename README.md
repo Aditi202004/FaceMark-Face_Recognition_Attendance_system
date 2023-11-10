@@ -27,11 +27,11 @@ FaceMark simplifies classroom attendance management using facial recognition. De
 
 ## Code Explanation
 
- ### get_embeddings
+ #### 1. get_embeddings
   - Obtains facial embeddings for a class, image, and roll number.
   - Utilizes the InsightFace library for deep learning facial analysis.
  
- ### predict
+ #### 2. predict
   - Predicts roll numbers for students in a list of images for a specified class.
   - Utilizes pre-trained embeddings and cosine similarity for facial recognition.
  
