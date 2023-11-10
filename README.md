@@ -1,4 +1,4 @@
-#FaceMark: Face Recognition-Based Attendance System
+# FaceMark: Face Recognition-Based Attendance System
 
 ##Introduction
 
