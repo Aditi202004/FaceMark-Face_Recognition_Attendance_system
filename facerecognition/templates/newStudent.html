@@ -162,20 +162,29 @@
               <label for="images" class="drop-container" id="dropcontainer">
                 <span class="drop-title">Drop files here</span>
                 or
-                <input type="file" name="image" id="images" accept="image/*" required>
+                <input type="file" name="image" id="images" accept="image/*" required multiple>
               </label>
             </div>
             
             
 
-            <button
+            
+              <button
               style="width: 232px; margin-top: 20px;margin-bottom: 20px; font-size: 20px"
               type="submit"
               class="btn btn-dark"
               id="myButton"
             >
-              Add New Student
+              Add Student
             </button>
+            <a href="http://127.0.0.1:8000/attendance_predict/"
+            style="width: 232px; margin-top: 15px; margin-bottom: 15px; font-size: 20px"
+            class="btn btn-dark"
+            id="attendance"
+            >
+              Mark Attendance
+            </a>
+
             <br />
           </form>
         </div>

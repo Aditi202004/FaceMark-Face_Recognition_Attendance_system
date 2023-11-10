@@ -1,4 +1,6 @@
 from django.shortcuts import render,redirect
+from django.urls import reverse
+from django.shortcuts import HttpResponseRedirect
 from django.core.files.uploadedfile import SimpleUploadedFile
 from .models import *
 import os
@@ -13,10 +15,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 
-
 # Create your views here.
 def home(request):
-    return render(request, "input.html")
+    return render(request, "home_pagee.html")
 
 def class_room(request):
     if request.method == "POST":
@@ -30,7 +31,7 @@ def class_room(request):
         class_room.save()
         print(Classes.objects.all())
         print(info)
-        return render(request,'input.html')
+        return redirect('/')
     # return render(request,'class.html')
     return render(request,'register.html')
 
