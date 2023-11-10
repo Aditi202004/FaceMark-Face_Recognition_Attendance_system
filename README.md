@@ -32,21 +32,21 @@ Our approach involves:
   - Obtains facial embeddings for a class, image, and roll number.
   - Utilizes the InsightFace library for deep learning facial analysis.
  
-  ### predict
+ ### predict
   - Predicts roll numbers for students in a list of images for a specified class.
   - Utilizes pre-trained embeddings and cosine similarity for facial recognition.
  
 ## How to Run the Code
   
  #### 1. Clone the repository:
- git clone https://github.com/Aditi202004/FaceMark-Face_Recognition_Attendance_system.git
- cd FaceMark-Face_Recognition_Attendance_system
+  git clone https://github.com/Aditi202004/FaceMark-Face_Recognition_Attendance_system.git
+  cd FaceMark-Face_Recognition_Attendance_system
 
  #### 2. Install dependencies:
- pip install -r requirements.txt
+  pip install -r requirements.txt
 
  #### 3. Run the code:
- python main.py
+  python main.py
 
    
 ## Metrics
@@ -55,7 +55,7 @@ Achieved an accuracy rate of ~98-99% in predicting roll numbers.
 
 ## Acknowledgments
 
-- We are grateful to the [InsightFace Library](https://github.com/deepinsight/insightface) for providing essential functionalities for facial analysis.
+ - We are grateful to the [InsightFace Library](https://github.com/deepinsight/insightface) for providing essential functionalities for facial analysis.
 
 ## Documentation
 For more detailed information and documentation, please visit [our documentation site](https://drive.google.com/file/d/1jNqSTrCi3ptIsSJYmodz61FPyA6tJzWB/view?usp=sharing).
@@ -64,5 +64,5 @@ For more detailed information and documentation, please visit [our documentation
 
 The project is organized as follows:
 
-- `/src`: contains the source code files.
-- `/static`: Includes CSS, JS, and images for the project's user interface.
+ - `/src`: contains the source code files.
+ - `/static`: Includes CSS, JS, and images for the project's user interface.
