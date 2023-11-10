@@ -33,53 +33,31 @@
       class="signup template d-flex justify-content-center align-items-center vh-100"
     >
       <div class="form_container p-5 rounded bg-white">
-        <form>
-          <h3 class="text-center">Sign Up</h3>
+        <form method="post">
+            {%csrf_token%}
+          <h3 class="text-center">Registration</h3>
           <div class="mb-2">
-            <label for="fname">Name</label>
-            <input type="text" placeholder="Enter Name" class="form-control" />
+            <label for="class">Class Name</label>
+            <input type="text" name="class" placeholder="Enter Name" class="form-control" />
           </div>
           <div class="mb-2">
-            <label for="email">Email</label>
+            <label for="prof_name">Prof Name</label>
             <input
-              type="email"
+              name="prof_name"
+              type="text"
               placeholder="Enter Email"
-              class="form-control"
-            />
-          </div>
-          <div class="mb-2">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              placeholder="Enter Password"
-              class="form-control"
-            />
-          </div>
-          <div class="mb-2">
-            <label for="password">Confirm Password</label>
-            <input
-              type="password"
-              placeholder="Enter Password"
               class="form-control"
             />
           </div>
           <div class="d-grid mt-2">
             <button
+            type="submit"
               class="btn btn-primary"
               style="background-color: #0b4c61; width: 100%"
             >
-              Sign Up
+              Register
             </button>
           </div>
-          <p class="text-end mt-2" style="text-align: right">
-            Already Registered?
-            <a
-              href="signin.html"
-              class="ms-2"
-              style="text-decoration: underline"
-              >Sign In</a
-            >
-          </p>
         </form>
       </div>
     </div>

@@ -9,8 +9,9 @@ from django.conf import settings
 from .predict import predict
 import pandas as pd
 from django.http import FileResponse,HttpResponse
-import joblib
-import json
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
 
 
 # Create your views here.
@@ -30,7 +31,8 @@ def class_room(request):
         print(Classes.objects.all())
         print(info)
         return render(request,'input.html')
-    return render(request,'class.html')
+    # return render(request,'class.html')
+    return render(request,'register.html')
 
 
 def students_enroll(request):
@@ -88,8 +90,8 @@ def students_enroll(request):
             get_embeddings(c_name, img, rollNumber) 
             
 
-            
-    return render(request,'studentimages.html',data)
+    # return render(request,'studentimages.html',data)
+    return render(request,'newStudent.html',data)
 
 def attendance_predict(request):
     class_list = []
@@ -167,7 +169,8 @@ def attendance_predict(request):
         df.to_csv(directory_csv, index=False)
 
 
-    return render(request,'attendance.html',data)
+    # return render(request,'attendance.html',data)
+    return render(request,'face_recognition.html',data)
 
 # def video_cam(request):
 #     return render(request,'home.html')
@@ -267,7 +270,7 @@ def csv(request):
         print(class_name)
         date = str(date)
         return redirect(f'download/{class_name}/{date}')
-    return render(request,"csv.html",data)
+    return render(request,"download_csv.html",data)
 
 def csv_download(request,class_name,date):
     print(class_name,date)
@@ -276,7 +279,7 @@ def csv_download(request,class_name,date):
     print(directory)
     if os.path.exists(directory):
         file_name = os.path.basename(file)
-        response = FileResponse(open(file, 'rb'))
+        response = FileResponse(open(directory, 'rb'))
         response['Content-Disposition'] = f'attachment; filename="{file_name}"'
         print("Hello")
         return response

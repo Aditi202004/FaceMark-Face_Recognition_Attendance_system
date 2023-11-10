@@ -30,7 +30,7 @@
       background-color: rgba(211, 211, 211, 0.5);
       margin: 0px 10px 10px 10px;
       width: 450px;
-      height: 400px;
+      /* height: 400px; */
       display: flex;
       flex-direction: column;
 
@@ -50,6 +50,38 @@
     .col:hover {
       transform: scale(1.02);
     }
+    .drop-container {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px dashed black;
+  color: black;
+  cursor: pointer;
+  transition: background .2s ease-in-out, border .2s ease-in-out;
+}
+
+.drop-container:hover {
+  background: #eee;
+  border-color: #111;
+}
+
+.drop-container:hover .drop-title {
+  color: #222;
+}
+
+.drop-title {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  transition: color .2s ease-in-out;
+}
   </style>
 
   <head>
@@ -75,31 +107,30 @@
           <h2>Add New Student</h2>
           <form
             id="studentForm"
-            action="#"
-            method="POST"
+            method="post"
             enctype="multipart/form-data"
           >
+          {%csrf_token%}
             <label
               for="studentDropdown"
               style="margin-top: 15px; margin-right: 15px; font-size: 20px"
               ><b>Select Course Name</b></label
             >
-            <select id="studentDropdown" name="student" required>
-              <option value="" disabled selected>Select a Course</option>
-              <option value="student1">CS 201</option>
-              <option value="student2">CS 203</option>
-              <option value="student3">CS 207</option>
-            </select>
+            <select id="studentDropdown" name="class_name" id="class_name" required>
+              {% for i in class_list %}
+              <option value={{i}} >{{i}}</option>
+              {% endfor %}
+          </select>
 
             <br />
 
-            <label style="font-size: 20px; margin-top: 20px"
+            <label for="sname" style="font-size: 20px; margin-top: 20px"
               ><b>Enter New Student Name</b></label
             >
             <input
               type="text"
               id="newusername"
-              name="newusername"
+              name="sname"
               style="
                 font-size: 20px;
                 margin-top: 10px;
@@ -114,9 +145,9 @@
             <label style="font-size: 20px"><b>Enter Roll Number</b></label>
             <br />
             <input
-              type="number"
+              type="text"
               id="newusereid"
-              name="newuserid"
+              name="rollNumber"
               style="
                 font-size: 20px;
                 margin-top: 10px;
@@ -127,9 +158,18 @@
               required
             />
             <br />
+            <div style="padding: 10px;">
+              <label for="images" class="drop-container" id="dropcontainer">
+                <span class="drop-title">Drop files here</span>
+                or
+                <input type="file" name="image" id="images" accept="image/*" required>
+              </label>
+            </div>
+            
+            
 
             <button
-              style="width: 232px; margin-top: 20px; font-size: 20px"
+              style="width: 232px; margin-top: 20px;margin-bottom: 20px; font-size: 20px"
               type="submit"
               class="btn btn-dark"
               id="myButton"
@@ -141,12 +181,12 @@
         </div>
       </div>
     </div>
-    <script>
+    <!-- <script>
       const myButton = document.getElementById("myButton");
       myButton.onclick = function () {
         alert("New student added!");
         document.getElementById("studentForm").reset();
       };
-    </script>
+    </script> -->
   </body>
 </html>

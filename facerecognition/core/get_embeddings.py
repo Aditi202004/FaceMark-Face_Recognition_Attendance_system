@@ -17,7 +17,13 @@ def get_embeddings(className, img, roll):
             _classes[className] = [[],[]]
     except Exception as e:
         print(f"Error loading/pickling classes: {e}")
-    i = 0
+    i=0
+    for key in _classes:
+        if key == className:
+            i = 1
+            break
+    if i == 0:
+        _classes[className] = [[],[]]
     embeddings = _classes[className][0]
     labels = _classes[className][1]
 

@@ -19,8 +19,8 @@
 
     .drop-zone {
       width: 250px;
-      height: 180px;
-      padding: 20px;
+      /* height: 180px; */
+      padding: 25px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -32,7 +32,7 @@
       color: white;
       border: 4px dashed white;
       border-radius: 10px;
-      margin: 10px auto;
+      margin: 20px auto;
     }
 
     .drop-zone--over {
@@ -68,63 +68,43 @@
     .col:hover {
       transform: scale(1.02);
     }
-    .details {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      text-align: center;
-    }
-    @keyframes blink {
-      0% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
+    .drop-container {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px dashed black;
+  color: black;
+  cursor: pointer;
+  transition: background .2s ease-in-out, border .2s ease-in-out;
+}
 
-    .logo {
-      animation: blink 1s infinite;
-    }
-    @media screen and (max-width: 1400px) {
-      body {
-        margin-top: 20px;
-      }
+.drop-container:hover {
+  background: #eee;
+  border-color: #111;
+}
 
-      .row {
-        flex-direction: column;
-      }
+.drop-container:hover .drop-title {
+  color: #222;
+}
 
-      .col {
-        margin: 10px 0;
-        height: auto;
-      }
-
-      .drop-zone {
-        width: 80%;
-        margin: 0 auto;
-      }
-    }
-    input[type="date"] {
-      font-size: 15px;
-      width: auto;
-      display: inline-block;
-      vertical-align: top;
-    }
-
-    #studentDropdown {
-      font-size: 17px;
-      width: auto;
-      display: inline-block;
-      vertical-align: top;
-    }
+.drop-title {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  transition: color .2s ease-in-out;
+}
   </style>
 
   <head>
     <script src="static\js\alert.js"></script>
+    <script src="static\js\drag_drop.js"></script>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -180,7 +160,6 @@
           padding: 0px;
           background-color: rgb(211, 211, 211, 0.5);
           margin: 0px 10px 10px 10px;
-          height: 400px;
         "
       >
         <h2
@@ -193,56 +172,53 @@
         >
           Photo-Based Attendance
         </h2>
-
-        <div class="details">
-          <div
-            id="calendar"
-            style="
-              font-size: 20px;
-              margin-top: 10px;
-              margin-bottom: 10px;
-              color: white;
-            "
-          >
-            <form method="post">
-              <input type="date" name="" value="" style="font-size: 17px" />
-            </form>
-          </div>
-          <div class="course">
-            <select id="studentDropdown" name="student" required>
-              <option value="" disabled selected>Select a Course</option>
-              <option value="student1">CS 201</option>
-              <option value="student2">CS 203</option>
-              <option value="student3">CS 207</option>
-            </select>
-          </div>
+        <form method="post" enctype="multipart/form-data">
+          {%csrf_token%}
+        <div
+          id="calendar"
+          style="
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: white;
+          "
+        >
+          
+            <input type="date" name="date" value="" />
+          
         </div>
-        <div class="drop-zone">
-          <div class="drop-zone__file-count"></div>
-          <span class="drop-zone__prompt"
-            >Drop files here or click to upload</span
-          >
-          <input type="file" name="myFile" class="drop-zone__input" multiple />
-        </div>
+        <select id="studentDropdown" name="class_name" id="class_name" required>
+          {% for i in class_list %}
+          <option value={{i}} >{{i}}</option>
+          {% endfor %}
+      </select>
+      <div style="padding: 10px;">
+        <label for="images" class="drop-container" id="dropcontainer">
+          <span class="drop-title">Drop files here</span>
+          or
+          <input type="file" name="images" id="images" accept="image/*" required>
+        </label>
+      </div>
 
         <button
-          style="width: 232px; margin-top: 15px; font-size: 20px"
+          style="width: 232px; margin-top: 15px; margin-bottom: 15px; font-size: 20px"
           type="submit"
           class="btn btn-dark"
           id="attendance"
         >
           Mark Attendance
         </button>
+      </form>
       </div>
 
-      <div
+      <!-- <div
         class="col"
         style="
           border-radius: 20px;
           padding: 0px;
           background-color: rgb(211, 211, 211, 0.5);
           margin: 0px 10px 10px 10px;
-          height: 400px;
+          min-height: 400px;
         "
       >
         <h2
@@ -255,7 +231,7 @@
         >
           Record Live Attendance
         </h2>
-        <img src="new_logo.png" alt="Your Logo" class="logo" />
+
         <p style="padding: 10px; color: white; font-size: 18px">
           Please click the "Open Camera" button to start recording live
           attendance using your webcam.
@@ -281,9 +257,9 @@
         <p style="padding: 10px; color: white; font-size: 18px">
           Total number of faces detected: x
         </p>
-      </div>
+      </div> -->
 
-      <div
+      <!-- <div
         class="col"
         style="
           border-radius: 20px;
@@ -322,7 +298,7 @@
 
         <button
           style="
-            margin-top: 45px;
+            margin-top: 35px;
             margin-bottom: 10px;
             font-size: 20px;
             width: 80%;
@@ -353,7 +329,7 @@
       </div>
 
       <div class="container">
-        <a href="course.html">
+        <a href="new_user.html" target="_blank">
           <button
             style="
               width: 232px;
@@ -363,28 +339,25 @@
               background-color: #0b4c61;
             "
             type="submit"
-            class="btn btn-dark new-course-btn"
-            onmouseover="this.style.backgroundColor='#053e51';this.style.color='';"
-            onmouseout="this.style.backgroundColor='#0b4c61'; this.style.color='';"
-            onmouseleave="this.style.backgroundColor='#0b4c61';"
+            class="btn btn-dark"
+            id="attendance"
           >
-            Add New Course
+            Add New Student
           </button>
         </a>
-      </div>
+      </div> -->
     </div>
 
     <script>
       function updateDateTime() {
         const dateTimeElement = document.getElementById("date-time");
         const now = new Date();
-        const dateTimeString = now.toLocaleString();
+        const dateTimeString = now.toLocaleString(); // Format the date and time as a string
         dateTimeElement.textContent = "Date and Time: " + dateTimeString;
       }
 
       updateDateTime();
       setInterval(updateDateTime, 1000);
     </script>
-    <script src="drag_drop.js"></script>
   </body>
 </html>
