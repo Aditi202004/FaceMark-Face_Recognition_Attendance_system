@@ -1,15 +1,15 @@
 # FaceMark: Face Recognition-Based Attendance System
 
-##Introduction
+## Introduction
 
 FaceMark simplifies classroom attendance management using facial recognition. Designed to enhance efficiency, it offers features such as real-time attendance capture and straightforward photo uploads.
 
-##Team Members
+## Team Members
 - Misha Jain
 - Aditi Wekhande
 - Sai Sanjana Reddy Algubelly
 
-  ##Procedure
+## Procedure
 
   Our approach involves:
   1. **Dataset Formatting:**
