@@ -38,12 +38,10 @@ FaceMark simplifies classroom attendance management using facial recognition. De
 ## How to Run the Code
   
  #### 1. Clone the repository:
-  ```bash
   - git clone https://github.com/Aditi202004/FaceMark-Face_Recognition_Attendance_system.git
   - cd FaceMark-Face_Recognition_Attendance_system
 
  #### 2. Install dependencies:
-  ```bash
   - pip install -r requirements.txt
 
  #### 2. Change your Current Directory:
@@ -52,7 +50,6 @@ FaceMark simplifies classroom attendance management using facial recognition. De
  #### 3. Run the code:
   - python manage.py runserver
 
-   
 ## Metrics
 
 Achieved an accuracy rate of ~98-99% in predicting roll numbers.
