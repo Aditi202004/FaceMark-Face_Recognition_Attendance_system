@@ -37,17 +37,17 @@ FaceMark simplifies classroom attendance management using facial recognition. De
  
 ## How to Run the Code
   
- #### 1. Clone the repository:
+ ### 1. Clone the repository:
   - git clone https://github.com/Aditi202004/FaceMark-Face_Recognition_Attendance_system.git
   - cd FaceMark-Face_Recognition_Attendance_system
 
- #### 2. Install dependencies:
+ ### 2. Install dependencies:
   - pip install -r requirements.txt
 
- #### 2. Change your Current Directory:
+ ### 2. Change your Current Directory:
   - cd facerecognition
 
- #### 3. Run the code:
+ ### 3. Run the code:
   - python manage.py runserver
 
    
