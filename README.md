@@ -17,12 +17,8 @@ FaceMark simplifies classroom attendance management using facial recognition. De
 
  #### 2. Training Model:
    - Facial recognition model trained on a diverse dataset, creating "train_embeddings" for identification.
-
- #### 3. Real-time Attendance Capture:
-   - Group photos captured during class.
-   - Faces identified, resized uniformly, and embeddings extracted.
-
- #### 4. Recognition Process:
+     
+ #### 3. Recognition Process:
    - Detected faces compared with "train_embeddings" using cosine similarity, resulting in associated roll numbers.
 
 ## Code Explanation
@@ -67,3 +63,5 @@ The project is organized as follows:
 
  - `/src`: contains the source code files.
  - `/static`: Includes CSS, JS, and images for the project's user interface.
+ - `media/static`: This directory includes all the necessary CSV files and images of students.
+
