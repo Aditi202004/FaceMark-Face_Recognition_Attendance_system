@@ -32,18 +32,23 @@ FaceMark simplifies classroom attendance management using facial recognition. De
   - Utilizes pre-trained embeddings and cosine similarity for facial recognition.
  
 ## How to Run the Code
+
+ #### 1. Download MySQL Workbench
+  - create database face;
+  - use face;
   
- #### 1. Clone the repository:
+ #### 2. Clone the repository:
   - git clone https://github.com/Aditi202004/FaceMark-Face_Recognition_Attendance_system.git
   - cd FaceMark-Face_Recognition_Attendance_system
 
- #### 2. Install dependencies:
+ #### 3. Install dependencies:
   - pip install -r requirements.txt
 
- #### 2. Change your Current Directory:
+ #### 4. Change your Current Directory:
   - cd facerecognition
 
- #### 3. Run the code:
+ #### 5. Run the code:
+  - python manage.py migrate
   - python manage.py runserver
 
 ## Metrics
