@@ -50,6 +50,8 @@ FaceMark simplifies classroom attendance management using facial recognition. De
  #### 5. Run the code:
   - python manage.py migrate
   - python manage.py runserver
+  - create a class name "cs203"
+  - Check the attendance right now for whole class.(We have stored the data only in one file as ther was storagae problem in laptops as the images were of huge size we took the embedding using googledrive and uploaded in classes file of cs203 and then we have checked the interface.)
 
 ## Metrics
 
